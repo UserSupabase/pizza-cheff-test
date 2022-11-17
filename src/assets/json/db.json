@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "image": "assets/images/products/Layer1.png",
+        "topic": "Мясная Делюкс",
+        "description": "Пепперони, лук, бекон, томатная паста, колбаски, перец, грибы, соус чили, ананасы"
+    },
+    {
+        "id": 2,
+        "image": "assets/images/products/Layer2.png",
+        "topic": "Морская премиум",
+        "description": "Перец, сыр, креветки, кальмары, мидии, лосось"
+    },
+    {
+        "id": 3,
+        "image": "assets/images/products/Layer3.png",
+        "topic": "Бекон и Сосиски",
+        "description": "Бекон, сыр, сосиски, ананас, томатная паста"
+    },
+    {
+        "id": 4,
+        "image": "assets/images/products/Layer4.png",
+        "topic": "Куриная Делюкс",
+        "description": "Курица, ананас, сыр Пепперони, соус для пиццы, томатная паста"
+    },
+    {
+        "id": 5,
+        "image": "assets/images/products/Layer5.png",
+        "topic": "Барбекю Премиум",
+        "description": "Свинина BBQ, соус Барбекю, сыр, курица, соус для пиццы, соус чили"
+    },
+    {
+        "id": 6,
+        "image": "assets/images/products/Layer6.png",
+        "topic": "Пепперони Дабл",
+        "description": "Пепперони сыр, колбаса 2 видов: обжаренная и вареная"
+    },
+    {
+        "id": 7,
+        "image": "assets/images/products/Layer7.png",
+        "topic": "Куриное трио",
+        "description": "Жарения курица, Тушеная курица, Куриные наггетсы, перец сыр, грибы, соус для пиццы"
+    },
+    {
+        "id": 8,
+        "image": "assets/images/products/Layer8.png",
+        "topic": "Cырная",
+        "description": "Сыр Джюгас, Сыр с плесенью, Сыр Моцаллера, Сыр секретный"
+    }
+]

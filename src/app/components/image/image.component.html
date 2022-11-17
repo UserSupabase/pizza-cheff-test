@@ -1,0 +1,7 @@
+<div 
+class="wrapper"
+[@showModel]="isImageShow ? 'open' : 'close'"
+(click)="closeWindow()">
+    <div class="wrapper_close">&#9747;</div>
+    <img [src]="image">
+</div>

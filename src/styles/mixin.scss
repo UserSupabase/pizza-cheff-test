@@ -1,0 +1,89 @@
+@import '../styles/functions.scss';
+
+@font-face {
+	font-family: 'Muller ExtraBold DEMO';
+	src: url('../assets/fonts/muller_extrabold_demo.eot'); /* IE 9 Compatibility Mode */
+	src: url('../assets/fonts/muller_extrabold_demo.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../assets/fonts/muller_extrabold_demo.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../assets/fonts/muller_extrabold_demo.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../assets/fonts/muller_extrabold_demo.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../assets/fonts/muller_extrabold_demo.svg#muller_extrabold_demo') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+@font-face {
+    font-family: 'Muller';
+    src: local('../assets/fonts/Muller Regular'), local('Muller-Regular'),
+        url('../assets/fonts/MullerRegular.woff2') format('woff2'),
+        url('../assets/fonts/MullerRegular.woff') format('woff'),
+        url('../assets/fonts/MullerRegular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@mixin extraBold {
+  font-family: 'Muller ExtraBold DEMO';
+}
+@mixin regular {
+  font-family: 'Muller';
+}
+@mixin wrapper {
+  max-width: 60vw;
+  margin: 0 auto;
+}
+@mixin  flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin inlineFlex {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@mixin flexSpaceAround {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+@mixin flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin gridTwoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0 vw(40);
+  grid-auto-flow: row;
+  grid-template-areas: ". ." ". .";
+}
+@mixin gridFourColumns {
+  display: grid; 
+  grid-template-rows: 1fr; 
+  gap: 0 vw(25); 
+  grid-template-areas: ". . . ."; 
+}
+@mixin gridFooter {
+  display: grid; 
+  grid-template-columns: .890fr 1.5fr;
+  gap: 0 0; 
+}
+@media (max-width: em(960)) {
+  @mixin gridTwoColumns {
+    gap: 0 rem(40);
+    transition: .3s;
+  }
+  @mixin gridFourColumns {
+    gap: 0 rem(25);
+    transition: .3s;
+  }
+}

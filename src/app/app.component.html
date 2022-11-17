@@ -1,0 +1,160 @@
+<header class="header">
+    <div class="header">
+        <img 
+        src="assets/images/icons/logo.png"
+        (click)="goScroll(choice)">
+        <nav>
+            <ul>
+                <li (click)="goScroll(pizzas)">Пиццы</li>
+                <li>Напитки</li>
+                <li (click)="goScroll(footer)">Доставка и оплата</li>
+                <li>Контакты</li>
+            </ul>
+        </nav>
+        <img 
+        src="assets/images/icons/burger.png"
+        (click)="menuShow()">
+    </div>
+</header>
+<div 
+#header
+class="menu"
+[@showMenu]="isShow ? 'open' : 'close'"
+(click)="isShow = false">
+    <div 
+    class="menu__section"
+    (click)="goScroll(pizzas)">
+      Пиццы
+    </div>
+    <div class="menu__section">Напитки</div>
+    <div 
+    class="menu__section" 
+    (click)="goScroll(footer)">
+     Доставка и оплата
+    </div>
+    <div class="menu__section">Контакты</div>
+</div>
+<section 
+#choice
+class="screen">
+  <div class="screen__one">
+    <img 
+    src="assets/images/icons/pizza_bg.png"
+    class="pizza-bg">
+    <h1>
+        Самая вкусная пицца в мире
+        <br>
+        <span>только в Pizza Cheff</span>
+    </h1>
+    <div class="screen__one_section">
+        <div class="screen__one_section-card">
+            <img src="assets/images/icons/hop.png">
+            <h3>ЛУЧШЕЕ МЕСТО</h3>
+            <p>Мы создаем тесто только из отборной итальянской муки наивысшего качества</p>
+        </div>
+        <div class="screen__one_section-card">
+            <img src="assets/images/icons/kitchen-pack.png">
+            <h3>ЛУЧШИЕ ПОВАРА</h3>
+            <p>Пиццы готовят самые<br> профессиональные итальянские повара</p>
+        </div>
+        <div class="screen__one_section-card">
+            <img src="assets/images/icons/seo-and-web.png">
+            <h3>ГАРАНТИЯ КАЧЕСТВА</h3>
+            <p>Наша пиццерия получила множество наград и признаний по всему миру</p>
+        </div>
+        <div class="screen__one_section-card">
+            <img src="assets/images/icons/holidays.png">
+            <h3>ОТБОРНЫЕ РЕЦЕПТЫ</h3>
+            <p>Мы используем рецепты<br> от мировых лидеров в изготовлении пиццы</p>
+        </div>
+    </div>
+    <button 
+    class="btn"
+    (click)="goScroll(pizzas)">
+        Выбрать пиццу
+    </button>
+  </div>
+</section>
+<section 
+#pizzas
+class="screen">
+ <div class="screen__two">
+    <h1>Выберите свою любимую пиццу</h1>
+    <div class="screen__two_products">  
+      <div 
+      class="screen__two_products_product"
+      *ngFor="let product of pizzas$ | async">
+       <div>
+        <img 
+        [src]="product.image"
+        (click)="showImage(product)">
+       </div>
+       <h3>{{product.topic}}</h3>
+       <p>{{product.description}}</p>
+       <button class="btn btn-card">В корзину</button>
+      </div>
+    </div>
+ </div>
+</section>
+<footer 
+#footer
+class="screen">
+ <img 
+ src="assets/images/icons/pizzzzza.png"
+ class="footer_bg">
+ <div class="screen__three">
+    <div>
+        <h1>
+            <span>Хватит думать!</span>
+            <br>
+            Доставь заказ за 30<br> минут!
+        </h1>
+        <p>Мы гарантированно доставим вашу пиццу за 30 минут с момента оформления заказа. Если мы опоздаем даже на 1 минуту - вы получаете весь заказ бесплатно и ваучер на скидку на следующий заказа. Мы гордимся нашим сервисом и сделаем всё, чтобы наш клиент был доволен и не остался голодный!</p>
+    </div>
+    <div>
+        <form 
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()">
+            <input 
+            type="text"
+            placeholder="Ваше имя"
+            formControlName="name"
+            oninput="this.value = this.value.replace(/\./g, '')">
+            <div 
+            class="input-error"
+            *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+              Введите имя
+            </div>
+            <input 
+            type="text"
+            placeholder="Адрес доставки"
+            formControlName="adress">
+            <div 
+            class="input-error"
+            *ngIf="form.get('adress')?.invalid && form.get('adress')?.touched">
+              Введите адрес доставки
+            </div>
+            <input 
+            type="number"
+            placeholder="Телефон"
+            formControlName="phone">
+            <div 
+            class="input-error"
+            *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched">
+              Введите телефон
+            </div>
+            <button 
+            class="btn btn-footer"
+            type="submit"
+            [disabled]="!form.valid">
+             Оформить заказ
+            </button>
+        </form>
+    </div>
+ </div>
+</footer>
+<app-image
+[image]="imageProduct"
+[isImageShow]="isImageShow"
+(showImage)="showImage()">
+</app-image>
